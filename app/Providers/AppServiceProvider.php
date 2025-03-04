@@ -2,33 +2,44 @@
 
 namespace App\Providers;
 
+use App\Mailer\Transport\Office365SmtpTransport;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Statamic\Statamic;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
-    public function register(): void
-    {
-        //
+  /**
+   * Register any application services.
+   */
+  public function register(): void
+  {
+    $this->app->extend('mail.manager', function ($manager) {
+      $manager->extend('office365', function ($config) {
+        return new Office365SmtpTransport(
+          $config['username'],
+          $config['client_id'],
+          $config['client_secret'],
+          $config['tenant_id'],
+          $config['refresh_token']
+        );
+      });
+    });
+  }
+
+  /**
+   * Bootstrap any application services.
+   */
+  public function boot(): void
+  {
+    // Force HTTPS on production and staging
+    if ($this->app->environment('production', 'preprod', 'staging')) {
+      URL::forceScheme('https');
     }
 
-    /**
-     * Bootstrap any application services.
-     */
-    public function boot(): void
-    {
-        // Force HTTPS on production and staging
-        if ($this->app->environment('production', 'preprod', 'staging')) {
-            URL::forceScheme('https');
-        }
-
-        // Statamic::vite('app', [
-        //     'resources/js/cp.js',
-        //     'resources/css/cp.css',
-        // ]);
-    }
+    // Statamic::vite('app', [
+    //     'resources/js/cp.js',
+    //     'resources/css/cp.css',
+    // ]);
+  }
 }
