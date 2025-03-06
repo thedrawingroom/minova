@@ -54,14 +54,14 @@ export default {
         const card = document.getElementById(cardId);
 
         if (card) {
-          const isCardVisible = !card.classList.contains('translate-x-full');
+          const isCardVisible = !card.classList.contains('translate-x-[calc(100%_+_1.5rem)]');
 
           document.querySelectorAll('.cross-section-card').forEach(c => {
-            c.classList.add('translate-x-full', 'hidden-card', 'no-shadow');
+            c.classList.add('translate-x-[calc(100%_+_1.5rem)]', 'hidden-card', 'no-shadow');
           });
 
           if (!isCardVisible) {
-            card.classList.remove('translate-x-full', 'hidden-card', 'no-shadow');
+            card.classList.remove('translate-x-[calc(100%_+_1.5rem)]', 'hidden-card', 'no-shadow');
           }
         }
       });
@@ -71,7 +71,7 @@ export default {
       closeButton.addEventListener('click', e => {
         e.stopPropagation();
         const card = closeButton.closest('.cross-section-card');
-        card.classList.add('translate-x-full', 'hidden-card', 'no-shadow');
+        card.classList.add('translate-x-[calc(100%_+_1.5rem)]', 'hidden-card', 'no-shadow');
       });
     });
   },

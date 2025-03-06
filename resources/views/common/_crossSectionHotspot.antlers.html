@@ -1,9 +1,9 @@
 <button
   class="{{ ['absolute flex size-7 items-center justify-center rounded-full border border-white p-1', position_class] | classes }}"
   aria-describedby="tooltip" data-card-id="{{ card_id }}">
-  <span class="h-full w-full rounded-full border-4 border-white bg-minova-gold"></span>
+  <span class="w-full h-full border-4 border-white rounded-full bg-minova-gold"></span>
 </button>
 
-<div role="tooltip" class="tooltip bg-white font-bold p-2 rounded-full text-xs absolute hidden text-nowrap z-50">
+<div role="tooltip" class="absolute z-40 hidden p-2 text-xs font-bold bg-white rounded-full tooltip text-nowrap">
   {{ tooltip }}
 </div>

@@ -1,5 +1,12 @@
-<h3
-  class="{{ ['text-white' => invert, 'text-minova-blue' => !invert, 'mb-0' => noMargin, 'mb-6 lg:mb-10' => !noMargin] | classes }}"
->
-  {{ text }}
-</h3>
+{{ if size != 'small' }}
+  <h3
+    class="{{ ['text-white' => invert, 'text-minova-blue' => !invert, 'mb-0' => noMargin, 'mb-6 lg:mb-10' => !noMargin] | classes }}">
+    {{ text }}
+  </h3>
+{{ /if }}
+{{ if size == 'small' }}
+  <h4
+    class="{{ ['text-white' => invert, 'text-minova-blue' => !invert, 'mb-0' => noMargin, 'mb-6 lg:mb-10' => !noMargin] | classes }}">
+    {{ text }}
+  </h4>
+{{ /if }}

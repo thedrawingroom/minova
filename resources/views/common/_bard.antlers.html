@@ -1,5 +1,9 @@
 {{ data }}
-  <div class="mb-10">
+  {{# 
+    These classes are to remove the margin from numbered and bulleted lists
+    [&_ul_li_p]:mb-0 [&_ol_li_p]:mb-0 
+  #}}
+  <div class="mb-10 [&_ul_li_p]:mb-0 [&_ol_li_p]:mb-0">
     {{ if type == "text" }}
       <div class="bard-content">
         {{ text }}
@@ -37,7 +41,7 @@
                 class="mr-3 flex size-10 items-center justify-center rounded-full bg-minova-gold font-bold text-minova-blue">
                 {{ index + 1 }}
               </span>
-              <span class="pt-2 font-bold">{{ title }}</span>
+              <span class="pt-2 lowercase first-letter:capitalize">{{ title }}</span>
             </li>
           {{ /numbered_list }}
         </ol>
@@ -89,9 +93,11 @@
         {{ partial:blocks/addressTable :addresses="addresses" }}
       {{ /if }}
     {{ elseif type == "h1_h2" }}
-      <h1 class="text-4xl md:text-5xl">{{ text }}</h1>
-    {{ elseif type == "h1_h3" }}
       <h1 class="text-3xl md:text-4xl">{{ text }}</h1>
+    {{ elseif type == "individual_address" }}
+      <p>{{ text | nl2br }}</p>
+    {{ elseif type == "h1_h3" }}
+      <h1 class="text-2xl md:text-3xl">{{ text }}</h1>
     {{ /if }}
   </div>
 {{ /data }}

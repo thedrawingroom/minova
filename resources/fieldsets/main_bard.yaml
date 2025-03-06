@@ -5,8 +5,12 @@ fields:
     field:
       type: bard
       buttons:
+        - h1
         - h2
         - h3
+        - h4
+        - h5
+        - h6
         - bold
         - italic
         - unorderedlist
@@ -16,10 +20,6 @@ fields:
         - anchor
         - image
         - table
-        - h1
-        - h4
-        - h5
-        - h6
         - underline
         - horizontalrule
       display: Content
@@ -43,6 +43,16 @@ fields:
               fields:
                 -
                   import: button
+            individual_address:
+              display: 'Individual Address'
+              icon: home-house
+              fields:
+                -
+                  handle: text
+                  field:
+                    type: textarea
+                    display: Text
+                    localizable: false
             address_table:
               display: 'Address Table'
               icon: home-house

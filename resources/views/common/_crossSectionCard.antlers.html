@@ -1,12 +1,12 @@
 <div id="{{ card_id }}"
-  class="cross-section-card fixed right-0 top-0 z-40 h-screen w-10/12 translate-x-full bg-white transition-transform md:w-[40rem] hidden-card">
+  class="cross-section-card fixed right-6 top-[10vh] z-50 h-[80vh] w-10/12 translate-x-[calc(100%_+_1.5rem)] bg-white transition-transform md:w-[40rem] hidden-card overflow-y-auto rounded-[2rem]">
   <div class="relative min-h-36">
     <button
       class="close-card-button absolute right-4 top-4 z-[1] flex size-10 items-center justify-center rounded-full bg-white">
       <i class="fa-regular fa-xmark fa-lg text-minova-blue"></i>
     </button>
     {{ if image }}
-      {{ partial:common/image class="h-auto w-full border-b-4 border-minova-gold" :url="image" :alt="image:alt" }}
+      {{ partial:common/image class="w-full h-auto border-b-4 border-minova-gold" :url="image" :alt="image:alt" }}
     {{ /if }}
   </div>
   <div class="p-8">

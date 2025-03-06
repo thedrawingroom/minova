@@ -6,6 +6,20 @@ export default {
     };
     addTopBlockPadding();
 
+    let lastScrollY = $(window).scrollTop();
+
+    $(window).on('scroll', function () {
+      let currentScrollY = $(this).scrollTop();
+
+      if (currentScrollY > 50 && currentScrollY > lastScrollY) {
+        $('body').addClass('hideHeader');
+      } else if (currentScrollY < lastScrollY) {
+        $('body').removeClass('hideHeader');
+      }
+
+      lastScrollY = currentScrollY;
+    });
+
     window.addEventListener('resize', () => {
       addTopBlockPadding();
     });

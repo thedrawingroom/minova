@@ -23,12 +23,6 @@ fields:
       max_files: 1
       localizable: true
   -
-    handle: large_banner
-    field:
-      type: toggle
-      display: 'Large Banner'
-      localizable: true
-  -
     handle: include_breadcrumbs
     field:
       type: toggle
