@@ -50,7 +50,7 @@ class Office365SmtpTransport extends AbstractTransport
 
     // Delegate the sending of the message to the underlying SMTP transport.
     // This method accepts a SentMessage instance.
-    $smtpTransport->send($message->getMessage());
+    $smtpTransport->send($message->getMessage(), $message->getEnvelope());
   }
 
   private function getAccessToken(): string
