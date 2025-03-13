@@ -39,7 +39,7 @@ class Office365SmtpTransport extends AbstractTransport
     $smtpTransport = new EsmtpTransport(
       'smtp.office365.com',
       587,
-      true,
+      false,
       authenticators: [
         new XOAuth2Authenticator(),
       ]
