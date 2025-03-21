@@ -2,7 +2,7 @@
 
 return [
 
-  /*
+    /*
     |--------------------------------------------------------------------------
     | Default Filesystem Disk
     |--------------------------------------------------------------------------
@@ -13,9 +13,9 @@ return [
     |
     */
 
-  'default' => env('FILESYSTEM_DISK', 's3'),
+    'default' => env('FILESYSTEM_DISK', 's3'),
 
-  /*
+    /*
     |--------------------------------------------------------------------------
     | Filesystem Disks
     |--------------------------------------------------------------------------
@@ -28,61 +28,61 @@ return [
     |
     */
 
-  'disks' => [
+    'disks' => [
 
-    'local' => [
-      'driver' => 'local',
-      'root' => storage_path('app/private'),
-      'serve' => true,
-      'throw' => false,
+        'local' => [
+            'driver' => 'local',
+            'root' => storage_path('app/private'),
+            'serve' => true,
+            'throw' => false,
+        ],
+
+        'public' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
+        's3' => [
+            'driver' => 's3',
+            'key' => env('AWS_ACCESS_KEY_ID', ''),
+            'secret' => env('AWS_SECRET_ACCESS_KEY', ''),
+            'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
+            'bucket' => env('AWS_BUCKET', 'minova'),
+            'url' => env('AWS_URL'),
+            'endpoint' => env('AWS_ENDPOINT'),
+            'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
+            'throw' => false,
+            'visibility' => 'private', // https://statamic.dev/assets#visibility
+        ],
+
+        'local_assets' => [
+            'driver' => 'local',
+            'root' => public_path('assets'),
+            'url' => '/assets',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
+        'assets' => [
+            'driver' => 'scoped',
+            'disk' => 's3',
+            'prefix' => 'assets',
+            'visibility' => 'public',
+        ],
+
+        'glide' => [
+            'driver' => 'scoped',
+            'disk' => 's3',
+            'prefix' => 'glide',
+            'visibility' => 'public'
+        ]
+
     ],
 
-    'public' => [
-      'driver' => 'local',
-      'root' => storage_path('app/public'),
-      'url' => env('APP_URL') . '/storage',
-      'visibility' => 'public',
-      'throw' => false,
-    ],
-
-    's3' => [
-      'driver' => 's3',
-      'key' => env('AWS_ACCESS_KEY_ID', ''),
-      'secret' => env('AWS_SECRET_ACCESS_KEY', ''),
-      'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
-      'bucket' => env('AWS_BUCKET', 'minova'),
-      'url' => env('AWS_URL'),
-      'endpoint' => env('AWS_ENDPOINT'),
-      'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
-      'throw' => false,
-      'visibility' => 'private', // https://statamic.dev/assets#visibility
-    ],
-
-    'local_assets' => [
-      'driver' => 'local',
-      'root' => public_path('assets'),
-      'url' => '/assets',
-      'visibility' => 'public',
-      'throw' => false,
-    ],
-
-    'assets' => [
-      'driver' => 'scoped',
-      'disk' => 'public',
-      'prefix' => 'assets',
-      'visibility' => 'public',
-    ],
-
-    'glide' => [
-      'driver' => 'scoped',
-      'disk' => 's3',
-      'prefix' => 'glide',
-      'visibility' => 'public'
-    ]
-
-  ],
-
-  /*
+    /*
     |--------------------------------------------------------------------------
     | Symbolic Links
     |--------------------------------------------------------------------------
@@ -93,8 +93,8 @@ return [
     |
     */
 
-  'links' => [
-    public_path('storage') => storage_path('app/public'),
-  ],
+    'links' => [
+        public_path('storage') => storage_path('app/public'),
+    ],
 
 ];
