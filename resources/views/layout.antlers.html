@@ -1,63 +1,72 @@
 <!DOCTYPE html>
 <html lang="{{ site:short_locale }}">
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="{{ site_settings:no_index_site ? 'noindex, nofollow' : 'all' }}" />
-  <meta name="recaptcha-site-key" content="{{ env:RECAPTCHA_V3_SITE_KEY }}">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="shortcut icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-    rel="stylesheet" />
-  <title>{{ title ?? site:name }}</title>
-  {{ vite src="resources/js/site.js|resources/css/site.css" }}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="{{ site_settings:no_index_site ? 'noindex, nofollow' : 'all' }}" />
+    <meta name="recaptcha-site-key" content="{{ env:RECAPTCHA_V3_SITE_KEY }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet" />
+    <title>{{ title ?? site:name }}</title>
+    {{ vite src="resources/js/site.js|resources/css/site.css" }}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R34H1M4RZP"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R34H1M4RZP"></script>
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+    {{# cookiebot #}}
+    {{ if env:environment == "production" }}
+      <script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="pqQ8GH7HxurY_L"
+        async></script>
+    {{ else }}
+      <script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-draft="true"
+        data-settings-id="pqQ8GH7HxurY_L" async></script>
+    {{ endif }}
+    <script>
+      window.dataLayer = window.dataLayer || [];
 
-    const regionMap = {
-      'americas': 'americas',
-      'asia_pacific': 'apac',
-      'emea_cis': 'emea',
-      'default': 'americas'
-    };
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
 
-    let siteHandle = '{{ site:handle }}' || 'default';
+      const regionMap = {
+        'americas': 'americas',
+        'asia_pacific': 'apac',
+        'emea_cis': 'emea',
+        'default': 'americas'
+      };
 
-    let region = regionMap[siteHandle] || 'americas';
+      let siteHandle = '{{ site:handle }}' || 'default';
 
-    gtag('config', 'G-R34H1M4RZP');
-    gtag('event', 'page_view', {
-      'region': region
-    });
-  </script>
+      let region = regionMap[siteHandle] || 'americas';
 
-</head>
-<body data-region-name="{{ site:handle }}">
-  {{ partial:sections/offcanvas }}
-  {{ partial:sections/header }}
-  <main>
-    {{ template_content }}
-  </main>
-  {{ partial:sections/cookie }}
-  {{ partial:sections/contact }}
-  {{ partial:sections/footer }}
-  {{ recaptcha }}
-</body>
+      gtag('config', 'G-R34H1M4RZP');
+      gtag('event', 'page_view', {
+        'region': region
+      });
+    </script>
+
+  </head>
+  <body data-region-name="{{ site:handle }}">
+    {{ partial:sections/offcanvas }}
+    {{ partial:sections/header }}
+    <main>
+      {{ template_content }}
+    </main>
+    {{ partial:sections/cookie }}
+    {{ partial:sections/contact }}
+    {{ partial:sections/footer }}
+    {{ recaptcha }}
+  </body>
 </html>
