@@ -17,7 +17,7 @@ class RoutingCheck
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->is('cp*')) {
+        if ($request->is('cp*') || $request->is('!/statamic-recaptcha/*') || $request->is('!/forms/*')) {
             return $next($request);
         }
 
