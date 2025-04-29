@@ -17,7 +17,7 @@ stages:
               tags: |
                 $(tag)
 
-  - stage: Deploy
+  - stage: DeployStaging
     displayName: Deploy to Container App
     dependsOn: Build
     jobs:
@@ -43,7 +43,9 @@ stages:
 
   - stage: DeployPreProd
     displayName: Deploy PreProd to Container App
-    dependsOn: Build
+    dependsOn: 
+      - Build
+      - DeployStaging
     jobs:
       - deployment: Deploy_PrePROD
         environment: PrePROD
