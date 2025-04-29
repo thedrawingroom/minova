@@ -87,7 +87,7 @@ stages:
                   inputs:
                     azureSubscription: 'ARM_PRD'
                     imageToDeploy: '$(containerRegistry)/$(imageRepository):$(tag)'
-                    containerAppName: 'minecorporatewebsiteprod'
+                    containerAppName: 'minecorpwebprod'
                     resourceGroup: '$(resourceGroupName)'
                     containerAppEnvironment: 'minecaecorpweb'
                     targetPort: '80'
