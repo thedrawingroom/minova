@@ -34,4 +34,16 @@ tabs:
                 - required
                 - 'max:200'
               localizable: false
+  SEO:
+    display: SEO
+    sections:
+      -
+        fields:
+          -
+            handle: seo
+            field:
+              type: seo_pro
+              listable: false
+              display: SEO
+              localizable: false
 title: Industry

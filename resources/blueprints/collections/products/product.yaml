@@ -123,4 +123,16 @@ tabs:
               display: 'Common Uses'
               mode: select
               localizable: true
+  SEO:
+    display: SEO
+    sections:
+      -
+        fields:
+          -
+            handle: seo
+            field:
+              type: seo_pro
+              listable: false
+              display: SEO
+              localizable: true
 title: Product

@@ -170,4 +170,16 @@ tabs:
               max_items: 1
               listable: false
               localizable: true
+  SEO:
+    display: SEO
+    sections:
+      -
+        fields:
+          -
+            handle: seo
+            field:
+              type: seo_pro
+              listable: false
+              display: SEO
+              localizable: true
 title: Replicator

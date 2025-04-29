@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8896167de4b5649160d330fd9440769a",
+    "content-hash": "ddf317a9523d75e77e91095ff306dd5f",
     "packages": [
         {
             "name": "ajthinking/archetype",
@@ -5809,6 +5809,52 @@
                 "source": "https://github.com/statamic/importer/tree/v1.7.4"
             },
             "time": "2025-02-18T15:59:17+00:00"
+        },
+        {
+            "name": "statamic/seo-pro",
+            "version": "6.6.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/statamic/seo-pro.git",
+                "reference": "e5ba5f8b390dae66fe87daf3d77a07adf90a5562"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/statamic/seo-pro/zipball/e5ba5f8b390dae66fe87daf3d77a07adf90a5562",
+                "reference": "e5ba5f8b390dae66fe87daf3d77a07adf90a5562",
+                "shasum": ""
+            },
+            "require": {
+                "statamic/cms": "^5.45.1"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.17",
+                "orchestra/testbench": "^8.28 || ^9.6.1 || ^10.0",
+                "phpunit/phpunit": "^10.5.35 || ^11.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Statamic\\SeoPro\\ServiceProvider"
+                    ]
+                },
+                "statamic": {
+                    "name": "SEO Pro",
+                    "description": "An all-in-one site reporting, metadata mastering, OG managing, Twitter card making, sitemap generating addon."
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Statamic\\SeoPro\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "support": {
+                "issues": "https://github.com/statamic/seo-pro/issues",
+                "source": "https://github.com/statamic/seo-pro/tree/6.6.3"
+            },
+            "time": "2025-04-01T18:56:04+00:00"
         },
         {
             "name": "statamic/stringy",
