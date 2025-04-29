@@ -11,7 +11,7 @@
           {{ /if }}
         {{ elseif video_type == 'file' }}
           {{ if video_file }}
-            <div class="relative w-full aspect-video">
+            <div class="relative w-full aspect-video-shallow">
               <video class="w-full" autoplay loop muted playsinline>
                 <source src="{{ video_file }}" type="video/mp4" />
               </video>

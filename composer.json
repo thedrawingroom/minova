@@ -21,7 +21,8 @@
         "league/oauth2-client": "^2.8",
         "statamic/cms": "^5.0",
         "statamic/eloquent-driver": "^4.16",
-        "statamic/importer": "^1.2"
+        "statamic/importer": "^1.2",
+        "statamic/seo-pro": "^6.6"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8.1",
