@@ -10,7 +10,7 @@
     ],
     "require": {
         "php": "^8.2",
-        "anakadote/statamic-recaptcha": "^1.0",
+        "anakadote/statamic-recaptcha": "dev-main",
         "azure-oss/storage-blob-laravel": "^1.2",
         "besanek/laravel-alias-storage": "^4.1",
         "laravel/framework": "^11",
@@ -81,6 +81,12 @@
             "pixelfear/composer-dist-plugin": true
         }
     },
+    "repositories": [
+      {
+        "type": "vcs",
+        "url": "https://github.com/thedrawingroom/statamic-recaptcha.git"
+      }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true
 }
