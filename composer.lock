@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "27c837f3280dc4d0efaa7ac3208007b9",
+    "content-hash": "5c2b9307e54cc3816703edd144cdd1ac",
     "packages": [
         {
             "name": "ajthinking/archetype",
@@ -71,19 +71,18 @@
         },
         {
             "name": "anakadote/statamic-recaptcha",
-            "version": "dev-main",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thedrawingroom/statamic-recaptcha.git",
-                "reference": "a66b93cfb48e071e4899c8cc91cdb04393512c4b"
+                "reference": "54085f4bb19d84b7c3abacc1d45aaa96414ce1a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thedrawingroom/statamic-recaptcha/zipball/a66b93cfb48e071e4899c8cc91cdb04393512c4b",
-                "reference": "a66b93cfb48e071e4899c8cc91cdb04393512c4b",
+                "url": "https://api.github.com/repos/thedrawingroom/statamic-recaptcha/zipball/54085f4bb19d84b7c3abacc1d45aaa96414ce1a0",
+                "reference": "54085f4bb19d84b7c3abacc1d45aaa96414ce1a0",
                 "shasum": ""
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "statamic": {
@@ -111,9 +110,9 @@
                 }
             ],
             "support": {
-                "source": "https://github.com/thedrawingroom/statamic-recaptcha/tree/main"
+                "source": "https://github.com/thedrawingroom/statamic-recaptcha/tree/develop"
             },
-            "time": "2025-04-30T14:27:19+00:00"
+            "time": "2025-05-06T22:09:53+00:00"
         },
         {
             "name": "aws/aws-crt-php",
@@ -171,16 +170,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.343.4",
+            "version": "3.343.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "735a810caf3f48d6da7d4887e2c904ead7ed326e"
+                "reference": "69b4b232072c4eb01f6701ba3f137728dc8c7aa8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/735a810caf3f48d6da7d4887e2c904ead7ed326e",
-                "reference": "735a810caf3f48d6da7d4887e2c904ead7ed326e",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/69b4b232072c4eb01f6701ba3f137728dc8c7aa8",
+                "reference": "69b4b232072c4eb01f6701ba3f137728dc8c7aa8",
                 "shasum": ""
             },
             "require": {
@@ -262,9 +261,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.343.4"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.343.5"
             },
-            "time": "2025-05-05T18:06:12+00:00"
+            "time": "2025-05-06T18:08:44+00:00"
         },
         {
             "name": "azure-oss/storage",

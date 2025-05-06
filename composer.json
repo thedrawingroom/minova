@@ -10,7 +10,7 @@
   ],
   "require": {
     "php": "^8.2",
-    "anakadote/statamic-recaptcha": "dev-main",
+    "anakadote/statamic-recaptcha": "dev-develop",
     "azure-oss/storage-blob-laravel": "^1.2",
     "besanek/laravel-alias-storage": "^4.1",
     "laravel/framework": "^11",

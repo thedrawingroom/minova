@@ -8,7 +8,7 @@ export default {
 
     let lastScrollY = $(window).scrollTop();
 
-    $(window).on('scroll', function () {
+    $(window).on('scroll', function() {
       let currentScrollY = $(this).scrollTop();
 
       if (currentScrollY > 50 && currentScrollY > lastScrollY) {
@@ -47,7 +47,7 @@ export default {
         regionSelector.value = 'apac';
       }
 
-      regionSelector.addEventListener('change', function () {
+      regionSelector.addEventListener('change', function() {
         const selectedOption = this.options[this.selectedIndex];
         const redirectUrl = selectedOption.getAttribute('data-url');
         window.location.href = redirectUrl;
@@ -101,6 +101,16 @@ export default {
             }
 
             recaptchaInput.value = token;
+
+            const csrfToken = sessionStorage.getItem('csrf-token');
+
+            if (csrfToken && !form.querySelector('input[name="_token"]')) {
+              const tokenInput = document.createElement('input');
+              tokenInput.setAttribute('name', '_token');
+              tokenInput.setAttribute('type', 'hidden');
+              tokenInput.setAttribute('value', csrfToken);
+              form.appendChild(tokenInput);
+            }
 
             form.submit();
           } catch (error) {
