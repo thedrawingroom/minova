@@ -13,7 +13,9 @@ return Application::configure(basePath: dirname(__DIR__))
   )
   ->withMiddleware(function (Middleware $middleware) {
     $middleware->validateCsrfTokens(except: [
-      '/csrf-token'
+      'csrf-token',
+      '!/statamic-recaptcha/*',
+      '!/forms/*'
     ]);
 
     $middleware->prependToGroup('web', \App\Http\Middleware\RoutingCheck::class);
