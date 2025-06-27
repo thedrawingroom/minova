@@ -2,10 +2,12 @@ export default {
   init() {
     const carousel = document.querySelector('.carousel');
 
-    const durations = [...carousel.querySelectorAll('.carousel-slide')].map(slide => {
-      const duration = slide.dataset.duration;
+    const slides = carousel?.querySelectorAll('.carousel-slide');
+
+    const durations = slides?.length ? [...slides].map(slide => {
+      const duration = slide?.dataset?.duration;
       return duration ? parseInt(duration, 10) * 1000 : 2000;
-    });
+    }) : [2000];
 
     $('.carousel').slick({
       autoplay: true,
@@ -53,21 +55,25 @@ export default {
       }
     });
 
-    carousel.addEventListener('mouseenter', () => {
-      const arrows = document.querySelectorAll('.slick-arrow');
-      arrows.forEach(arrow => {
-        arrow.classList.remove('opacity-0');
-        arrow.classList.add('opacity-100');
+    /*
+    if (carousel) {
+      carousel.addEventListener('mouseenter', () => {
+        const arrows = document.querySelectorAll('.slick-arrow');
+        arrows.forEach(arrow => {
+          arrow.classList.remove('opacity-0');
+          arrow.classList.add('opacity-100');
+        });
       });
-    });
 
-    carousel.addEventListener('mouseleave', () => {
-      const arrows = document.querySelectorAll('.slick-arrow');
-      arrows.forEach(arrow => {
-        arrow.classList.add('opacity-0');
-        arrow.classList.remove('opacity-100');
+      carousel.addEventListener('mouseleave', () => {
+        const arrows = document.querySelectorAll('.slick-arrow');
+        arrows.forEach(arrow => {
+          arrow.classList.add('opacity-0');
+          arrow.classList.remove('opacity-100');
+        });
       });
-    });
+    }
+    */
 
     document.querySelectorAll('.slick-arrow').forEach(arrow => {
       arrow.addEventListener('click', () => {
